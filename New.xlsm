@@ -1,0 +1,24 @@
+Dim shell As Object
+Set shell = VBA.CreateObject("WScript.Shell")
+Dim waitTillComplete As Boolean: waitTillComplete = True
+Dim style As Integer: style = 1
+Dim errorCode As Integer
+Dim path As String
+path = "RScript C:\R_Code\text.r" & " " & var1
+errorCode = shell.Run(path, style, waitTillComplete)
+   
+Dim x As Workbook
+Dim y As Workbook
+Application.DisplayAlerts = False
+'## Open both workbooks first:
+Set x = Workbooks.Open("C:\Users\user\Desktop\ML_21\My_Rules.csv")
+
+'Now, copy what you want from x:
+x.Sheets("My_Rules").Range("A2:B500").Copy
+
+'Now, paste to y worksheet:
+ Windows("TABLE.xlsm").Activate
+    Sheets("TABLE_DETAILS").Range("B2").PasteSpecial
+
+'Close x:
+x.Close
