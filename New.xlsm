@@ -4,7 +4,7 @@ Dim waitTillComplete As Boolean: waitTillComplete = True
 Dim style As Integer: style = 1
 Dim errorCode As Integer
 Dim path As String
-path = "RScript C:\R_Code\text.r" & " " & var1
+path = "RScript C:\R_Code\text.r"
 errorCode = shell.Run(path, style, waitTillComplete)
    
 Dim x As Workbook
